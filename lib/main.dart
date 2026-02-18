@@ -14,7 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Fruit Catcher Game', home: const GameScreen());
+    return MaterialApp(
+      title: 'Fruit Catcher Game',
+      debugShowCheckedModeBanner: false,
+      home: const GameScreen(),
+    );
   }
 }
 
