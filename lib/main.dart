@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fruit_game_catcher/managers/audio_manager.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AudioManager().initialize();
   runApp(const MyApp());
 }
 
