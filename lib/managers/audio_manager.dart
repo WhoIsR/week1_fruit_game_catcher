@@ -9,4 +9,18 @@ class AudioManager {
   bool _isSfxEnabled = true;
   double _musicVolume = 0.7;
   double _sfxVolume = 1.0;
+
+  Future<void> initialize() async {
+    try {
+      await FlameAudio.audioCache.loadAll([
+        'music/background_music.mp3',
+        'sfx/collect.mp3',
+        'sfx/explosion.mp3',
+        'sfx/jump.mp3',
+      ]);
+      print('Audio initialized successfully');
+    } catch (e) {
+      print('Error initializing audio: $e');
+    }
+  }
 }
