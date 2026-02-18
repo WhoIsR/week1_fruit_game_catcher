@@ -25,4 +25,24 @@ class Fruit extends PositionComponent
       removeFromParent();
     }
   }
+
+  @override
+  void render(Canvas canvas) {
+    final paint = Paint()..style = PaintingStyle.fill;
+    switch (type) {
+      case FruitType.apple:
+        paint.color = Colors.red;
+        break;
+      case FruitType.banana:
+        paint.color = Colors.yellow;
+        break;
+      case FruitType.orange:
+        paint.color = Colors.orange;
+        break;
+      case FruitType.strawberry:
+        paint.color = Colors.pink;
+        break;
+    }
+    canvas.drawCircle(Offset(size.x / 2, size.y / 2), size.x / 2, paint);
+  }
 }
