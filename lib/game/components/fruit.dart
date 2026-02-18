@@ -45,4 +45,13 @@ class Fruit extends PositionComponent
     }
     canvas.drawCircle(Offset(size.x / 2, size.y / 2), size.x / 2, paint);
   }
+
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollision(intersectionPoints, other);
+    if (other is Basket) {
+      // gameRef.incrementScore();
+      removeFromParent();
+    }
+  }
 }
