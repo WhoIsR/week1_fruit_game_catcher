@@ -17,6 +17,14 @@ class Fruit extends PositionComponent
       super(size: Vector2.all(40));
 
   @override
+  Future<void> onLoad() async {
+    await super.onLoad();
+    anchor = Anchor.center;
+
+    add(CircleHitbox());
+  }
+
+  @override
   void update(double dt) {
     super.update(dt);
     position.y += fallSpeed * dt;
@@ -50,7 +58,7 @@ class Fruit extends PositionComponent
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollision(intersectionPoints, other);
     if (other is Basket) {
-      // gameRef.incrementScore();
+      gameRef.incrementScore();
       removeFromParent();
     }
   }

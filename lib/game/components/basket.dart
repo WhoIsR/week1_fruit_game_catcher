@@ -9,6 +9,7 @@ class Basket extends PositionComponent with HasGameRef, CollisionCallbacks {
   Future<void> onLoad() async {
     await super.onLoad();
     anchor = Anchor.center;
+    position = Vector2(gameRef.size.x / 2, gameRef.size.y - 100);
     add(RectangleHitbox());
   }
 
