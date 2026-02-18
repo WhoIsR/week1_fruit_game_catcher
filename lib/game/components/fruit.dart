@@ -15,4 +15,14 @@ class Fruit extends PositionComponent
   Fruit({super.position})
     : type = FruitType.values[Random().nextInt(FruitType.values.length)],
       super(size: Vector2.all(40));
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+    position.y += fallSpeed * dt;
+
+    if (position.y > gameRef.size.y + 50) {
+      removeFromParent();
+    }
+  }
 }
