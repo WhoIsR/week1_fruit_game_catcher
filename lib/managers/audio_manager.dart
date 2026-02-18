@@ -51,4 +51,17 @@ class AudioManager {
       }
     }
   }
+
+  void toggleMusic() {
+    _isMusicEnabled = !_isMusicEnabled;
+    if (_isMusicEnabled) {
+      playBackgroundMusic();
+    } else {
+      stopBackgroundMusic();
+    }
+  }
+
+  void toggleSfx() {
+    _isSfxEnabled = !_isSfxEnabled;
+  }
 }
