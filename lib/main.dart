@@ -55,7 +55,7 @@ class _GameScreenState extends State<GameScreen> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: ValueListenableBuilder<int>(
-                valueListenable: counter,
+                valueListenable: game.scoreNotifier,
                 builder: (context, score, child) {
                   return Text(
                     'Score: $score',
@@ -76,11 +76,15 @@ class _GameScreenState extends State<GameScreen> {
               children: [
                 IconButton(
                   icon: const Icon(Icons.music_note, color: Colors.black),
-                  onPressed: () {},
+                  onPressed: () {
+                    AudioManager().toggleMusic();
+                  },
                 ),
                 IconButton(
                   icon: const Icon(Icons.volume_up, color: Colors.black),
-                  onPressed: () {},
+                  onPressed: () {
+                    AudioManager().toggleSfx();
+                  },
                 ),
               ],
             ),
