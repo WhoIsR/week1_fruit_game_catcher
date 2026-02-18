@@ -23,4 +23,22 @@ class AudioManager {
       print('Error initializing audio: $e');
     }
   }
+
+  void playBackgroundMusic() {
+    if (_isMusicEnabled) {
+      try {
+        FlameAudio.bgm.play('music/background_music.mp3', volume: _musicVolume);
+      } catch (e) {
+        print('Error playing BGM: $e');
+      }
+    }
+  }
+
+  void stopBackgroundMusic() {
+    try {
+      FlameAudio.bgm.stop();
+    } catch (e) {
+      print(e);
+    }
+  }
 }
